@@ -1,0 +1,43 @@
+<?php
+#parse("PHP File Header.php")
+#if (!(${NAMESPACE}==""))
+
+namespace ${NAMESPACE};
+
+#end
+#parse("PHP Class Doc Comment.php")
+abstract class ${NAME} extends Migration {
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(${DS}arguments) {
+    parent::__construct(${DS}arguments);
+    // List the team members...
+    ${DS}this->team = array(
+      new MigrateTeamMember('Evgeniy Kashchenko', 'evgeniy@blinkreaction.com',
+                            t('Program Manager')),
+      new MigrateTeamMember('Victor Ursu', 'victor.ursu@blinkreaction.com',
+                            t('Dev Lead')),
+      new MigrateTeamMember('Shawn Duncan', 'shawn.duncan@blinkreaction.com',
+                            t('Developer')),
+    );
+
+    // Define the URL pattern here in the shared class with ':id:' representing
+    // the position of the issue number, then add:
+    // ->issueNumber(1234) to a mapping.
+    ${DS}this->issuePattern = 'https://blinkreaction.attask-ondemand.com/task/view?ID=:id:';
+  }
+
+  /**
+   * Provides a connection to the Source Database
+   *
+   * @param ${DS}connection
+   * The array key used to define the database connection in settings.php
+   *
+   * @return DatabaseConnection
+   *   The corresponding connection object.
+   */
+  public function getConnection(${DS}connection = '${DB_array_key_in_settings}') {
+    return Database::getConnection('default', ${DS}connection);
+  }
+}

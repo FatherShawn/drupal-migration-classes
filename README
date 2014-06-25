@@ -1,0 +1,23 @@
+These files are boilerplate class templates for use with the API provided by the Migrate module that is contributed to the Drupal project:
+https://www.drupal.org/project/migrate.  The Extended class is meant to extend the Base class.
+
+There are two php class files with placeholder names.  There are also two text files that contain VTL templates that can be setup as file
+templates in the phpStorm IDE.  In Settings >> IDE Settings >> File and Code Templates add a template on the templates tab and paste the
+contents of the file into the text area.  Give the template an appropriate name and extension and click [Apply]
+
+If you use Dash (http://kapeli.com/dash) or some other snippet manager you may find it helpful to setup these snippets:
+
+$this->addFieldMapping('__destination-field__','__source-field__');
+
+->sourceMigration(array('__MigrationName__'))
+
+$databases['__key__']['default'] = array(
+   'driver' => 'mysql',
+   'database' => '__databasename__',
+   'username' => 'drupal',
+   'password' => '__password__',
+   'host' => 'localhost',
+   'port' => __port__,
+   'prefix' => '__myprefix__',
+   'collation' => 'utf8_general_ci',
+ );
